@@ -100,7 +100,7 @@ h5 {
 .stats-row {
   margin-top: 1.4rem;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 0.8rem;
 }
 
@@ -300,4 +300,162 @@ h5 {
   .stats-row {
     grid-template-columns: 1fr;
   }
+}
+
+.league-news-grid,
+.nation-news-grid,
+.tables-grid,
+.roster-grid,
+.source-grid {
+  margin-top: 1rem;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.league-news-grid {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.nation-news-grid {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.tables-grid {
+  grid-template-columns: 1fr;
+}
+
+.roster-grid {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.source-grid {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.league-news-card,
+.nation-news-card,
+.table-card,
+.roster-card,
+.source-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1rem;
+}
+
+.league-news-card h3,
+.table-card h3,
+.roster-card h3 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.league-news-card p,
+.nation-news-card p,
+.table-card p,
+.roster-card p,
+.source-card p {
+  margin: 0.25rem 0;
+  color: var(--muted);
+}
+
+.league-news-card ul,
+.nation-news-card ul {
+  margin: 0.7rem 0 0;
+  padding-left: 1.1rem;
+}
+
+.league-news-card li,
+.nation-news-card li {
+  margin-bottom: 0.45rem;
+}
+
+.league-news-card a,
+.nation-news-card a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.table-wrap {
+  margin-top: 0.8rem;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0.5rem 0.4rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.9rem;
+}
+
+th {
+  color: var(--accent-soft);
+  font-weight: 600;
+}
+
+.team-list {
+  margin-top: 0.7rem;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.team-row {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 0.65rem;
+}
+
+.team-row h5 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.team-row p {
+  margin: 0.35rem 0 0;
+  font-size: 0.88rem;
+}
+
+.source-top {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.pill {
+  display: inline-block;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  padding: 0.2rem 0.55rem;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.pill.active {
+  border-color: rgba(117, 244, 198, 0.45);
+  color: #9df5d7;
+}
+
+.pill.inactive {
+  border-color: rgba(255, 146, 146, 0.5);
+  color: #ffb3b3;
+}
+
+.source-card h4 {
+  margin: 0.6rem 0 0.2rem;
+  font-size: 1.2rem;
+}
+
+.source-card a {
+  display: block;
+  color: var(--accent-soft);
+  text-decoration: none;
+  font-size: 0.8rem;
+  word-break: break-all;
 }

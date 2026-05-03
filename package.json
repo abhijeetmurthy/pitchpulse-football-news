@@ -7,7 +7,8 @@
     "dev": "concurrently \"PORT=58080 npm run dev --prefix apps/api\" \"WEB_PORT=54173 VITE_API_URL=http://127.0.0.1:58080 npm run dev --prefix apps/web\"",
     "build": "npm run build --prefix apps/web",
     "start": "PORT=58080 npm run start --prefix apps/api",
-    "scrape": "node scripts/run-all.mjs"
+    "scrape": "node scripts/run-all.mjs",
+    "sources:sync": "node scripts/source-registry.mjs"
   },
   "devDependencies": {
     "concurrently": "^9.2.1"
@@ -15,6 +16,7 @@
   "dependencies": {
     "axios": "^1.16.0",
     "cheerio": "^1.2.0",
+    "nedb-promises": "^6.2.3",
     "rss-parser": "^3.13.0"
   }
 }

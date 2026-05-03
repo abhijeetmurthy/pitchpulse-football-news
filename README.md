@@ -1,30 +1,33 @@
-# PitchPulse: AI-Synthesized Football News App
+# PitchPulse: Football Intelligence Platform
 
-A full-stack football intelligence dashboard with:
+Full-stack football data app that now supports:
 
-- Live-ish match tracking via public scoreboard endpoints
-- News aggregation from football RSS feeds
-- Club profile scraping (players + legends)
-- Auto-refresh scraping jobs through cron
-- A high-contrast, visually rich frontend dashboard
+- News organized by `league` and `nation`
+- League standings tables for tracked competitions
+- Teams and players (roster scraping) for each tracked league
+- Scrape source registry stored in DB with `keepScraping` flag
+- Scheduled scrape jobs (news, matches, standings, teams, players, clubs)
 
-## High-level architecture
+## Architecture
 
-1. `scripts/` collects data from internet sources and writes JSON datasets.
-2. `apps/api` serves those datasets and exposes manual scrape endpoints.
-3. `apps/web` renders the football newsroom UI and calls the API.
-4. `node-cron` jobs in the API refresh datasets regularly.
+1. `config/scrape-websites.json`
+- master list of websites/endpoints to scrape
+- every source has metadata (`sourceType`, `leagueKey`, `nation`, `keepScraping`)
 
-## Project structure
+2. `scripts/`
+- `source-registry.mjs`: sync sources into embedded DB
+- `scrape-news.mjs`: fetch + classify news by league/nation
+- `scrape-matches.mjs`: scrape scoreboard feeds
+- `scrape-leagues.mjs`: standings + teams + player rosters
+- `scrape-clubs.mjs`: club player lists + legends
+- `db.mjs`: embedded DB layer (`data/db/*.db`)
 
-- `apps/api/src/server.mjs`: Express API + cron scheduler
-- `apps/web/src/App.jsx`: Main dashboard UI
-- `scripts/scrape-news.mjs`: Aggregates football headlines
-- `scripts/scrape-matches.mjs`: Fetches match scoreboard data
-- `scripts/scrape-clubs.mjs`: Scrapes club pages for players + legends
-- `config/rss-sources.json`: News feed list
-- `config/club-sources.json`: Clubs to profile
-- `data/*.json`: Cached dataset files used by the app
+3. `apps/api`
+- serves DB-backed endpoints for all sections
+- runs recurring cron refresh jobs
+
+4. `apps/web`
+- renders grouped news, standings tables, teams + players, and source registry
 
 ## Run locally
 
@@ -33,40 +36,41 @@ cd /Users/abhijeetmurthy/Development/football-news-ai
 npm install
 npm install --prefix apps/api
 npm install --prefix apps/web
-npm run scrape
+ALLOW_INSECURE_TLS=true npm run scrape
 npm run dev
 ```
 
-Then open:
+Open:
 
 - Web app: http://127.0.0.1:54173
-- API: http://127.0.0.1:58080/api/overview
+- API overview: http://127.0.0.1:58080/api/overview
 
-## Manual scrape
+## DB-backed scrape source list
 
-```bash
-npm run scrape
-```
+- Config file: `config/scrape-websites.json`
+- DB collection: `sources` in `data/db/sources.db`
+- Active sources are those with `keepScraping: true`
 
-or:
-
-```bash
-curl -X POST http://127.0.0.1:58080/api/scrape
-```
-
-## Important notes
-
-- "Scrape all webpages" is not technically finite. This project uses a controlled, configurable source list and scheduled refreshes.
-- Always review source site terms of service and robots policies before expanding crawling.
-- Update `config/club-sources.json` and `config/rss-sources.json` to expand coverage.
-
-## GitHub push
+Sync registry only:
 
 ```bash
-git init
-git add .
-git commit -m "Initial football AI news app"
-git branch -M main
-git remote add origin <your-github-repo-url>
-git push -u origin main
+npm run sources:sync
 ```
+
+## Key API endpoints
+
+- `GET /api/news`
+- `GET /api/news/grouped`
+- `GET /api/matches`
+- `GET /api/standings`
+- `GET /api/teams`
+- `GET /api/clubs`
+- `GET /api/sources`
+- `GET /api/overview`
+- `POST /api/scrape`
+
+## Notes
+
+- This project scrapes a curated source list; it does not attempt to crawl the entire web.
+- Respect each source's terms and robots policies before expanding coverage.
+- If your local environment has certificate-chain issues, keep `ALLOW_INSECURE_TLS=true` while scraping.

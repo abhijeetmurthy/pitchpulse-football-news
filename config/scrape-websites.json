@@ -1,0 +1,282 @@
+[
+  {
+    "name": "BBC Sport Football RSS",
+    "url": "https://feeds.bbci.co.uk/sport/football/rss.xml",
+    "sourceType": "rss",
+    "leagueKey": "global",
+    "leagueName": "Global",
+    "nation": "International",
+    "keepScraping": true,
+    "intervalMinutes": 30
+  },
+  {
+    "name": "The Guardian Football RSS",
+    "url": "https://www.theguardian.com/football/rss",
+    "sourceType": "rss",
+    "leagueKey": "global",
+    "leagueName": "Global",
+    "nation": "International",
+    "keepScraping": true,
+    "intervalMinutes": 30
+  },
+  {
+    "name": "ESPN Soccer News RSS",
+    "url": "https://www.espn.com/espn/rss/soccer/news",
+    "sourceType": "rss",
+    "leagueKey": "global",
+    "leagueName": "Global",
+    "nation": "International",
+    "keepScraping": true,
+    "intervalMinutes": 30
+  },
+  {
+    "name": "Arsenal Club Profile",
+    "url": "https://en.wikipedia.org/wiki/Arsenal_F.C.",
+    "sourceType": "club_profile",
+    "leagueKey": "eng.1",
+    "leagueName": "Premier League",
+    "nation": "England",
+    "keepScraping": true,
+    "intervalMinutes": 1440
+  },
+  {
+    "name": "Real Madrid Club Profile",
+    "url": "https://en.wikipedia.org/wiki/Real_Madrid_CF",
+    "sourceType": "club_profile",
+    "leagueKey": "esp.1",
+    "leagueName": "La Liga",
+    "nation": "Spain",
+    "keepScraping": true,
+    "intervalMinutes": 1440
+  },
+  {
+    "name": "FC Barcelona Club Profile",
+    "url": "https://en.wikipedia.org/wiki/FC_Barcelona",
+    "sourceType": "club_profile",
+    "leagueKey": "esp.1",
+    "leagueName": "La Liga",
+    "nation": "Spain",
+    "keepScraping": true,
+    "intervalMinutes": 1440
+  },
+  {
+    "name": "Bayern Munich Club Profile",
+    "url": "https://en.wikipedia.org/wiki/FC_Bayern_Munich",
+    "sourceType": "club_profile",
+    "leagueKey": "ger.1",
+    "leagueName": "Bundesliga",
+    "nation": "Germany",
+    "keepScraping": true,
+    "intervalMinutes": 1440
+  },
+  {
+    "name": "Premier League Scoreboard",
+    "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard",
+    "sourceType": "scoreboard",
+    "leagueKey": "eng.1",
+    "leagueName": "Premier League",
+    "nation": "England",
+    "keepScraping": true,
+    "intervalMinutes": 20
+  },
+  {
+    "name": "La Liga Scoreboard",
+    "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+    "sourceType": "scoreboard",
+    "leagueKey": "esp.1",
+    "leagueName": "La Liga",
+    "nation": "Spain",
+    "keepScraping": true,
+    "intervalMinutes": 20
+  },
+  {
+    "name": "Bundesliga Scoreboard",
+    "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/scoreboard",
+    "sourceType": "scoreboard",
+    "leagueKey": "ger.1",
+    "leagueName": "Bundesliga",
+    "nation": "Germany",
+    "keepScraping": true,
+    "intervalMinutes": 20
+  },
+  {
+    "name": "Serie A Scoreboard",
+    "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/scoreboard",
+    "sourceType": "scoreboard",
+    "leagueKey": "ita.1",
+    "leagueName": "Serie A",
+    "nation": "Italy",
+    "keepScraping": true,
+    "intervalMinutes": 20
+  },
+  {
+    "name": "Ligue 1 Scoreboard",
+    "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/scoreboard",
+    "sourceType": "scoreboard",
+    "leagueKey": "fra.1",
+    "leagueName": "Ligue 1",
+    "nation": "France",
+    "keepScraping": true,
+    "intervalMinutes": 20
+  },
+  {
+    "name": "MLS Scoreboard",
+    "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/usa.1/scoreboard",
+    "sourceType": "scoreboard",
+    "leagueKey": "usa.1",
+    "leagueName": "MLS",
+    "nation": "United States",
+    "keepScraping": true,
+    "intervalMinutes": 20
+  },
+  {
+    "name": "Champions League Scoreboard",
+    "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard",
+    "sourceType": "scoreboard",
+    "leagueKey": "uefa.champions",
+    "leagueName": "Champions League",
+    "nation": "Europe",
+    "keepScraping": true,
+    "intervalMinutes": 20
+  },
+  {
+    "name": "Premier League Standings",
+    "url": "https://site.api.espn.com/apis/v2/sports/soccer/eng.1/standings",
+    "sourceType": "standings",
+    "leagueKey": "eng.1",
+    "leagueName": "Premier League",
+    "nation": "England",
+    "keepScraping": true,
+    "intervalMinutes": 120
+  },
+  {
+    "name": "La Liga Standings",
+    "url": "https://site.api.espn.com/apis/v2/sports/soccer/esp.1/standings",
+    "sourceType": "standings",
+    "leagueKey": "esp.1",
+    "leagueName": "La Liga",
+    "nation": "Spain",
+    "keepScraping": true,
+    "intervalMinutes": 120
+  },
+  {
+    "name": "Bundesliga Standings",
+    "url": "https://site.api.espn.com/apis/v2/sports/soccer/ger.1/standings",
+    "sourceType": "standings",
+    "leagueKey": "ger.1",
+    "leagueName": "Bundesliga",
+    "nation": "Germany",
+    "keepScraping": true,
+    "intervalMinutes": 120
+  },
+  {
+    "name": "Serie A Standings",
+    "url": "https://site.api.espn.com/apis/v2/sports/soccer/ita.1/standings",
+    "sourceType": "standings",
+    "leagueKey": "ita.1",
+    "leagueName": "Serie A",
+    "nation": "Italy",
+    "keepScraping": true,
+    "intervalMinutes": 120
+  },
+  {
+    "name": "Ligue 1 Standings",
+    "url": "https://site.api.espn.com/apis/v2/sports/soccer/fra.1/standings",
+    "sourceType": "standings",
+    "leagueKey": "fra.1",
+    "leagueName": "Ligue 1",
+    "nation": "France",
+    "keepScraping": true,
+    "intervalMinutes": 120
+  },
+  {
+    "name": "MLS Standings",
+    "url": "https://site.api.espn.com/apis/v2/sports/soccer/usa.1/standings",
+    "sourceType": "standings",
+    "leagueKey": "usa.1",
+    "leagueName": "MLS",
+    "nation": "United States",
+    "keepScraping": true,
+    "intervalMinutes": 120
+  },
+  {
+    "name": "Champions League Standings",
+    "url": "https://site.api.espn.com/apis/v2/sports/soccer/uefa.champions/standings",
+    "sourceType": "standings",
+    "leagueKey": "uefa.champions",
+    "leagueName": "Champions League",
+    "nation": "Europe",
+    "keepScraping": true,
+    "intervalMinutes": 120
+  },
+  {
+    "name": "Premier League Teams",
+    "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams",
+    "sourceType": "teams",
+    "leagueKey": "eng.1",
+    "leagueName": "Premier League",
+    "nation": "England",
+    "keepScraping": true,
+    "intervalMinutes": 360
+  },
+  {
+    "name": "La Liga Teams",
+    "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/teams",
+    "sourceType": "teams",
+    "leagueKey": "esp.1",
+    "leagueName": "La Liga",
+    "nation": "Spain",
+    "keepScraping": true,
+    "intervalMinutes": 360
+  },
+  {
+    "name": "Bundesliga Teams",
+    "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/teams",
+    "sourceType": "teams",
+    "leagueKey": "ger.1",
+    "leagueName": "Bundesliga",
+    "nation": "Germany",
+    "keepScraping": true,
+    "intervalMinutes": 360
+  },
+  {
+    "name": "Serie A Teams",
+    "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/teams",
+    "sourceType": "teams",
+    "leagueKey": "ita.1",
+    "leagueName": "Serie A",
+    "nation": "Italy",
+    "keepScraping": true,
+    "intervalMinutes": 360
+  },
+  {
+    "name": "Ligue 1 Teams",
+    "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/teams",
+    "sourceType": "teams",
+    "leagueKey": "fra.1",
+    "leagueName": "Ligue 1",
+    "nation": "France",
+    "keepScraping": true,
+    "intervalMinutes": 360
+  },
+  {
+    "name": "MLS Teams",
+    "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/usa.1/teams",
+    "sourceType": "teams",
+    "leagueKey": "usa.1",
+    "leagueName": "MLS",
+    "nation": "United States",
+    "keepScraping": true,
+    "intervalMinutes": 360
+  },
+  {
+    "name": "Champions League Teams",
+    "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams",
+    "sourceType": "teams",
+    "leagueKey": "uefa.champions",
+    "leagueName": "Champions League",
+    "nation": "Europe",
+    "keepScraping": true,
+    "intervalMinutes": 360
+  }
+]

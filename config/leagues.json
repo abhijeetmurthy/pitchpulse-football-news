@@ -1,0 +1,9 @@
+[
+  { "key": "eng.1", "name": "Premier League", "nation": "England" },
+  { "key": "esp.1", "name": "La Liga", "nation": "Spain" },
+  { "key": "ger.1", "name": "Bundesliga", "nation": "Germany" },
+  { "key": "ita.1", "name": "Serie A", "nation": "Italy" },
+  { "key": "fra.1", "name": "Ligue 1", "nation": "France" },
+  { "key": "usa.1", "name": "MLS", "nation": "United States" },
+  { "key": "uefa.champions", "name": "Champions League", "nation": "Europe" }
+]

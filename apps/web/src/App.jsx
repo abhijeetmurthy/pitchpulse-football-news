@@ -12,78 +12,145 @@ function SectionHeader({ kicker, title, subtitle }) {
   );
 }
 
-function TopStory({ story }) {
-  if (!story) return null;
-  return (
-    <a className="top-story" href={story.link} target="_blank" rel="noreferrer">
-      <div className="top-story-meta">
-        <span>Top Story</span>
-        <h3>{story.title}</h3>
-        <p>{story.summary}</p>
-      </div>
-      <div className="top-story-footer">
-        <strong>{story.source}</strong>
-        <small>{new Date(story.publishedAt).toLocaleString()}</small>
-      </div>
-    </a>
-  );
-}
+function LeagueNewsBlocks({ groupedNews }) {
+  const entries = Object.entries(groupedNews?.byLeague || {});
 
-function NewsGrid({ items }) {
   return (
-    <div className="news-grid">
-      {items.map((item) => (
-        <a className="news-card" key={item.id} href={item.link} target="_blank" rel="noreferrer">
-          <div className="badge">{item.source}</div>
-          <h4>{item.title}</h4>
-          <p>{item.summary}</p>
-          <small>{new Date(item.publishedAt).toLocaleString()}</small>
-        </a>
-      ))}
-    </div>
-  );
-}
-
-function MatchStrip({ matches }) {
-  return (
-    <div className="match-strip">
-      {matches.map((match) => (
-        <div className="match-card" key={match.id}>
-          <div className="match-league">{match.league}</div>
-          <div className="clubs-row">
-            <span>{match.home}</span>
-            <strong>{match.score || "vs"}</strong>
-            <span>{match.away}</span>
-          </div>
-          <div className="match-footer">
-            <small>{new Date(match.kickoff).toLocaleString()}</small>
-            <b>{match.status}</b>
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-}
-
-function ClubCards({ clubs }) {
-  return (
-    <div className="club-grid">
-      {clubs.map((club) => (
-        <article className="club-card" key={club.name}>
+    <div className="league-news-grid">
+      {entries.map(([leagueKey, stories]) => (
+        <article className="league-news-card" key={leagueKey}>
           <header>
-            <h3>{club.name}</h3>
-            <p>{club.country}</p>
+            <h3>{stories[0]?.leagueName || leagueKey}</h3>
+            <p>{stories[0]?.nation || "International"}</p>
           </header>
-          <div>
-            <h5>Current Players</h5>
-            <p>{club.players.slice(0, 10).join(", ") || "Pending scrape"}</p>
+          <ul>
+            {stories.slice(0, 5).map((story) => (
+              <li key={story.id}>
+                <a href={story.link} target="_blank" rel="noreferrer">
+                  {story.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </div>
+  );
+}
+
+function NationNewsBlocks({ groupedNews }) {
+  const entries = Object.entries(groupedNews?.byNation || {});
+
+  return (
+    <div className="nation-news-grid">
+      {entries.map(([nation, stories]) => (
+        <article className="nation-news-card" key={nation}>
+          <h4>{nation}</h4>
+          <ul>
+            {stories.slice(0, 4).map((story) => (
+              <li key={story.id}>
+                <a href={story.link} target="_blank" rel="noreferrer">
+                  {story.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </div>
+  );
+}
+
+function LeagueTables({ standings }) {
+  return (
+    <div className="tables-grid">
+      {standings.map((league) => (
+        <article key={league.leagueKey} className="table-card">
+          <header>
+            <h3>{league.leagueName}</h3>
+            <p>{league.nation}</p>
+          </header>
+          <div className="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Team</th>
+                  <th>P</th>
+                  <th>W</th>
+                  <th>D</th>
+                  <th>L</th>
+                  <th>GD</th>
+                  <th>Pts</th>
+                </tr>
+              </thead>
+              <tbody>
+                {league.table.slice(0, 20).map((row) => (
+                  <tr key={row.rowKey}>
+                    <td>{row.rank}</td>
+                    <td>{row.teamName}</td>
+                    <td>{row.gamesPlayed}</td>
+                    <td>{row.wins}</td>
+                    <td>{row.draws}</td>
+                    <td>{row.losses}</td>
+                    <td>{row.goalDifference}</td>
+                    <td>{row.points}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
-          <div>
-            <h5>Club Legends</h5>
-            <p>{club.legends.join(", ")}</p>
+        </article>
+      ))}
+    </div>
+  );
+}
+
+function TeamRosters({ leagues }) {
+  return (
+    <div className="roster-grid">
+      {leagues.map((league) => (
+        <article key={league.leagueKey} className="roster-card">
+          <header>
+            <h3>{league.leagueName}</h3>
+            <p>{league.teams.length} teams tracked</p>
+          </header>
+          <div className="team-list">
+            {league.teams.slice(0, 12).map((team) => (
+              <div className="team-row" key={team.teamKey}>
+                <h5>{team.name}</h5>
+                <p>
+                  {(team.players || [])
+                    .slice(0, 8)
+                    .map((player) => player.name)
+                    .join(", ") || "Roster pending"}
+                </p>
+              </div>
+            ))}
           </div>
-          <a href={club.url} target="_blank" rel="noreferrer">
-            Source page
+        </article>
+      ))}
+    </div>
+  );
+}
+
+function SourceRegistry({ sources }) {
+  return (
+    <div className="source-grid">
+      {sources.map((source) => (
+        <article className="source-card" key={source.url}>
+          <div className="source-top">
+            <span className="pill">{source.sourceType}</span>
+            <span className={`pill ${source.keepScraping ? "active" : "inactive"}`}>
+              {source.keepScraping ? "keep scraping" : "paused"}
+            </span>
+          </div>
+          <h4>{source.name}</h4>
+          <p>
+            {source.leagueName} · {source.nation}
+          </p>
+          <a href={source.url} target="_blank" rel="noreferrer">
+            {source.url}
           </a>
         </article>
       ))}
@@ -92,31 +159,33 @@ function ClubCards({ clubs }) {
 }
 
 export default function App() {
-  const [news, setNews] = useState([]);
-  const [matches, setMatches] = useState([]);
-  const [clubs, setClubs] = useState([]);
   const [overview, setOverview] = useState({});
+  const [groupedNews, setGroupedNews] = useState({ byLeague: {}, byNation: {} });
+  const [standings, setStandings] = useState([]);
+  const [teamsByLeague, setTeamsByLeague] = useState([]);
+  const [sourcesPayload, setSourcesPayload] = useState({ sources: [] });
 
   useEffect(() => {
     async function load() {
-      const [newsRes, matchRes, clubRes, overviewRes] = await Promise.all([
-        fetch(`${API_BASE}/api/news`),
-        fetch(`${API_BASE}/api/matches`),
-        fetch(`${API_BASE}/api/clubs`),
-        fetch(`${API_BASE}/api/overview`)
+      const [overviewRes, groupedRes, standingsRes, teamsRes, sourcesRes] = await Promise.all([
+        fetch(`${API_BASE}/api/overview`),
+        fetch(`${API_BASE}/api/news/grouped`),
+        fetch(`${API_BASE}/api/standings`),
+        fetch(`${API_BASE}/api/teams`),
+        fetch(`${API_BASE}/api/sources`)
       ]);
 
-      setNews(await newsRes.json());
-      setMatches(await matchRes.json());
-      setClubs(await clubRes.json());
       setOverview(await overviewRes.json());
+      setGroupedNews(await groupedRes.json());
+      setStandings(await standingsRes.json());
+      setTeamsByLeague(await teamsRes.json());
+      setSourcesPayload(await sourcesRes.json());
     }
 
     load().catch((err) => console.error("Failed to load dashboard", err));
   }, []);
 
-  const topStory = news[0];
-  const restNews = useMemo(() => news.slice(1, 9), [news]);
+  const leagueCount = useMemo(() => standings.length, [standings]);
 
   return (
     <main>
@@ -124,53 +193,78 @@ export default function App() {
         <div className="glow glow-one" />
         <div className="glow glow-two" />
         <p className="eyebrow">PitchPulse</p>
-        <h1>AI-Synthesized Football Intelligence</h1>
+        <h1>League + National Football Intelligence Hub</h1>
         <p>
-          One visual newsroom for fixtures, breaking news, squads, legends, and
-          trend narratives.
+          Structured football operations view: league tables, team rosters, player lists,
+          and grouped news intelligence from tracked sources.
         </p>
         <div className="stats-row">
           <div>
             <strong>{overview.articleCount || 0}</strong>
-            <span>Fresh Articles</span>
+            <span>Articles</span>
           </div>
           <div>
-            <strong>{overview.matchCount || 0}</strong>
-            <span>Tracked Matches</span>
+            <strong>{leagueCount}</strong>
+            <span>League Tables</span>
           </div>
           <div>
-            <strong>{overview.clubCount || 0}</strong>
-            <span>Club Profiles</span>
+            <strong>{overview.teamCount || 0}</strong>
+            <span>Teams</span>
+          </div>
+          <div>
+            <strong>{overview.playerCount || 0}</strong>
+            <span>Players</span>
+          </div>
+          <div>
+            <strong>{overview.sourceCount || 0}</strong>
+            <span>Active Scrape Sites</span>
           </div>
         </div>
       </section>
 
       <section>
         <SectionHeader
-          kicker="Live Scoreboard"
-          title="Matches"
-          subtitle="Pulled from public scoreboard endpoints"
+          kicker="News Intelligence"
+          title="Organized By League"
+          subtitle="Automatically tagged into major competitions"
         />
-        <MatchStrip matches={matches.slice(0, 8)} />
+        <LeagueNewsBlocks groupedNews={groupedNews} />
       </section>
 
       <section>
         <SectionHeader
-          kicker="Headlines"
-          title="Synthesized News"
-          subtitle="Merged RSS streams from football media"
+          kicker="National Coverage"
+          title="Organized By Nation"
+          subtitle="Country-level feed clustering"
         />
-        <TopStory story={topStory} />
-        <NewsGrid items={restNews} />
+        <NationNewsBlocks groupedNews={groupedNews} />
       </section>
 
       <section>
         <SectionHeader
-          kicker="Club Intel"
-          title="Players + Legends"
-          subtitle="Automated crawl over selected club pages"
+          kicker="League Analytics"
+          title="Standings Tables"
+          subtitle="Live tables for tracked leagues"
         />
-        <ClubCards clubs={clubs} />
+        <LeagueTables standings={standings} />
+      </section>
+
+      <section>
+        <SectionHeader
+          kicker="Squad Intelligence"
+          title="Teams + Players"
+          subtitle="Rosters scraped by competition"
+        />
+        <TeamRosters leagues={teamsByLeague} />
+      </section>
+
+      <section>
+        <SectionHeader
+          kicker="Scrape Registry"
+          title="Websites Marked To Keep Scraping"
+          subtitle={`Active ${sourcesPayload.activeCount || 0} / Total ${sourcesPayload.totalCount || 0}`}
+        />
+        <SourceRegistry sources={(sourcesPayload.sources || []).filter((s) => s.keepScraping)} />
       </section>
     </main>
   );

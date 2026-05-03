@@ -1,6 +1,8 @@
 import * as cheerio from "cheerio";
 import { readJson, writeJson } from "./utils.mjs";
 import { httpClient } from "./http-client.mjs";
+import { listScrapeSources, markSourceScraped, upsertClubs } from "./db.mjs";
+import { syncSourceRegistry } from "./source-registry.mjs";
 
 function findCurrentSquad($) {
   const players = new Set();
@@ -15,11 +17,17 @@ function findCurrentSquad($) {
     }
   });
 
-  return Array.from(players).slice(0, 35);
+  return Array.from(players).slice(0, 40);
 }
 
 export async function scrapeClubs() {
-  const clubSources = await readJson("config/club-sources.json", []);
+  await syncSourceRegistry();
+  const [clubSources, legendsConfig] = await Promise.all([
+    listScrapeSources({ sourceType: "club_profile", keepScraping: true }),
+    readJson("config/club-sources.json", [])
+  ]);
+
+  const legendsByName = new Map(legendsConfig.map((club) => [club.name, club.legends || []]));
   const clubs = [];
 
   for (const club of clubSources) {
@@ -29,22 +37,34 @@ export async function scrapeClubs() {
       const players = findCurrentSquad($);
 
       clubs.push({
-        ...club,
+        name: club.name,
+        country: club.nation,
+        leagueKey: club.leagueKey,
+        leagueName: club.leagueName,
+        url: club.url,
+        legends: legendsByName.get(club.name) || [],
         players,
         scrapedAt: new Date().toISOString()
       });
 
+      await markSourceScraped(club.url);
       console.log(`Fetched ${players.length} players for ${club.name}`);
     } catch (error) {
       console.error(`Failed club scrape ${club.name}:`, error.message);
       clubs.push({
-        ...club,
+        name: club.name,
+        country: club.nation,
+        leagueKey: club.leagueKey,
+        leagueName: club.leagueName,
+        url: club.url,
+        legends: legendsByName.get(club.name) || [],
         players: [],
         scrapedAt: new Date().toISOString()
       });
     }
   }
 
+  await upsertClubs(clubs);
   await writeJson("data/clubs.json", clubs);
   return clubs;
 }
