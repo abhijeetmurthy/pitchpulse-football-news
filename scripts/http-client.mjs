@@ -1,7 +1,7 @@
 import axios from "axios";
 import https from "node:https";
 
-const allowInsecure = process.env.ALLOW_INSECURE_TLS !== "false";
+const allowInsecure = process.env.ALLOW_INSECURE_TLS === "true";
 
 if (allowInsecure) {
   process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
