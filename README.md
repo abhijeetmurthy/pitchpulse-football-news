@@ -36,7 +36,7 @@ cd /Users/abhijeetmurthy/Development/football-news-ai
 npm install
 npm install --prefix apps/api
 npm install --prefix apps/web
-ALLOW_INSECURE_TLS=true npm run scrape
+npm run scrape
 npm run dev
 ```
 
@@ -73,4 +73,4 @@ npm run sources:sync
 
 - This project scrapes a curated source list; it does not attempt to crawl the entire web.
 - Respect each source's terms and robots policies before expanding coverage.
-- If your local environment has certificate-chain issues, keep `ALLOW_INSECURE_TLS=true` while scraping.
+- TLS note: scraper runs in compatibility mode by default for certificate-chain issues. Set `ALLOW_INSECURE_TLS=false` to enforce strict TLS.
