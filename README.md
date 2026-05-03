@@ -39,8 +39,8 @@ npm run dev
 
 Then open:
 
-- Web app: http://localhost:5173
-- API: http://localhost:8080/api/overview
+- Web app: http://127.0.0.1:54173
+- API: http://127.0.0.1:58080/api/overview
 
 ## Manual scrape
 
@@ -51,7 +51,7 @@ npm run scrape
 or:
 
 ```bash
-curl -X POST http://localhost:8080/api/scrape
+curl -X POST http://127.0.0.1:58080/api/scrape
 ```
 
 ## Important notes

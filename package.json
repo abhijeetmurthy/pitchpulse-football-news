@@ -4,9 +4,9 @@
   "private": true,
   "description": "AI-synthesized football news app with scraping and live dashboards",
   "scripts": {
-    "dev": "concurrently \"npm run dev --prefix apps/api\" \"npm run dev --prefix apps/web\"",
+    "dev": "concurrently \"PORT=58080 npm run dev --prefix apps/api\" \"WEB_PORT=54173 VITE_API_URL=http://127.0.0.1:58080 npm run dev --prefix apps/web\"",
     "build": "npm run build --prefix apps/web",
-    "start": "npm run start --prefix apps/api",
+    "start": "PORT=58080 npm run start --prefix apps/api",
     "scrape": "node scripts/run-all.mjs"
   },
   "devDependencies": {
