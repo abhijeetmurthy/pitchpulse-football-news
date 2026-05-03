@@ -1,0 +1,20 @@
+{
+  "name": "football-news-ai",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AI-synthesized football news app with scraping and live dashboards",
+  "scripts": {
+    "dev": "concurrently \"npm run dev --prefix apps/api\" \"npm run dev --prefix apps/web\"",
+    "build": "npm run build --prefix apps/web",
+    "start": "npm run start --prefix apps/api",
+    "scrape": "node scripts/run-all.mjs"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  },
+  "dependencies": {
+    "axios": "^1.16.0",
+    "cheerio": "^1.2.0",
+    "rss-parser": "^3.13.0"
+  }
+}

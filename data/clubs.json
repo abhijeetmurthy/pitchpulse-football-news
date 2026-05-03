@@ -1,0 +1,135 @@
+[
+  {
+    "name": "Arsenal",
+    "country": "England",
+    "url": "https://en.wikipedia.org/wiki/Arsenal_F.C.",
+    "legends": [
+      "Thierry Henry",
+      "Tony Adams",
+      "Dennis Bergkamp",
+      "Patrick Vieira"
+    ],
+    "players": [
+      "Bukta",
+      "Umbro",
+      "Adidas",
+      "Nike",
+      "Dreamcast",
+      "Emirates",
+      "Puma",
+      "Visit Rwanda",
+      "Deel, Inc.",
+      "1929–30",
+      "1986–87",
+      "1930",
+      "1988",
+      "1969–70"
+    ],
+    "scrapedAt": "2026-05-03T03:45:55.681Z"
+  },
+  {
+    "name": "Real Madrid",
+    "country": "Spain",
+    "url": "https://en.wikipedia.org/wiki/Real_Madrid_CF",
+    "legends": [
+      "Alfredo Di Stefano",
+      "Raul",
+      "Iker Casillas",
+      "Cristiano Ronaldo"
+    ],
+    "players": [
+      "Adidas",
+      "Zanussi",
+      "Hummel",
+      "Teka",
+      "Kelme",
+      "[note 4]",
+      "Siemens mobile",
+      "Siemens",
+      "BenQ-Siemens",
+      "bwin",
+      "Emirates",
+      "HP Inc.",
+      "[211]",
+      "1905",
+      "1985",
+      "1988",
+      "1947",
+      "1984–85",
+      "2002",
+      "1955",
+      "1960",
+      "2024",
+      "Florentino Pérez",
+      "José Martínez Sánchez - Pirri"
+    ],
+    "scrapedAt": "2026-05-03T03:45:55.859Z"
+  },
+  {
+    "name": "FC Barcelona",
+    "country": "Spain",
+    "url": "https://en.wikipedia.org/wiki/FC_Barcelona",
+    "legends": [
+      "Lionel Messi",
+      "Xavi",
+      "Andres Iniesta",
+      "Carles Puyol"
+    ],
+    "players": [
+      "Meyba",
+      "Kappa",
+      "Nike",
+      "Forum",
+      "UNICEF",
+      "Qatar Foundation",
+      "Qatar Airways",
+      "Beko",
+      "Rakuten",
+      "Spotify",
+      "AMBILIGHT TV",
+      "1910",
+      "1983",
+      "1948",
+      "1978–79",
+      "1992",
+      "1955–58",
+      "1949",
+      "Joan Laporta",
+      "Elena Fort"
+    ],
+    "scrapedAt": "2026-05-03T03:45:56.024Z"
+  },
+  {
+    "name": "Bayern Munich",
+    "country": "Germany",
+    "url": "https://en.wikipedia.org/wiki/FC_Bayern_Munich",
+    "legends": [
+      "Franz Beckenbauer",
+      "Gerd Muller",
+      "Oliver Kahn",
+      "Philipp Lahm"
+    ],
+    "players": [
+      "[137]",
+      "Adidas",
+      "Magirus Deutz",
+      "Iveco Magirus",
+      "Commodore",
+      "Opel",
+      "Deutsche Telekom",
+      "Hamad Airport",
+      "Qatar Airways",
+      "Audi",
+      "Allianz",
+      "1956–57",
+      "1987",
+      "1997",
+      "1995–96",
+      "1966–67",
+      "2013",
+      "1976",
+      "Minister-President"
+    ],
+    "scrapedAt": "2026-05-03T03:45:56.164Z"
+  }
+]

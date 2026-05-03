@@ -1,0 +1,83 @@
+[
+  {
+    "id": "740939",
+    "league": "Premier League",
+    "home": "Brentford",
+    "away": "West Ham United",
+    "score": "3-0",
+    "status": "Full Time",
+    "kickoff": "2026-05-02T14:00Z"
+  },
+  {
+    "id": "740944",
+    "league": "Premier League",
+    "home": "Newcastle United",
+    "away": "Brighton & Hove Albion",
+    "score": "3-1",
+    "status": "Full Time",
+    "kickoff": "2026-05-02T14:00Z"
+  },
+  {
+    "id": "740945",
+    "league": "Premier League",
+    "home": "Wolverhampton Wanderers",
+    "away": "Sunderland",
+    "score": "1-1",
+    "status": "Full Time",
+    "kickoff": "2026-05-02T14:00Z"
+  },
+  {
+    "id": "740936",
+    "league": "Premier League",
+    "home": "Arsenal",
+    "away": "Fulham",
+    "score": "3-0",
+    "status": "Full Time",
+    "kickoff": "2026-05-02T16:30Z"
+  },
+  {
+    "id": "748477",
+    "league": "La Liga",
+    "home": "Villarreal",
+    "away": "Levante",
+    "score": "5-1",
+    "status": "Full Time",
+    "kickoff": "2026-05-02T12:00Z"
+  },
+  {
+    "id": "748481",
+    "league": "La Liga",
+    "home": "Valencia",
+    "away": "Atlético Madrid",
+    "score": "0-2",
+    "status": "Full Time",
+    "kickoff": "2026-05-02T14:15Z"
+  },
+  {
+    "id": "748482",
+    "league": "La Liga",
+    "home": "Alavés",
+    "away": "Athletic Club",
+    "score": "2-4",
+    "status": "Full Time",
+    "kickoff": "2026-05-02T16:30Z"
+  },
+  {
+    "id": "748480",
+    "league": "La Liga",
+    "home": "Osasuna",
+    "away": "Barcelona",
+    "score": "1-2",
+    "status": "Full Time",
+    "kickoff": "2026-05-02T19:00Z"
+  },
+  {
+    "id": "401862896",
+    "league": "Champions League",
+    "home": "Arsenal",
+    "away": "Atlético Madrid",
+    "score": "0-0",
+    "status": "Scheduled",
+    "kickoff": "2026-05-05T19:00Z"
+  }
+]

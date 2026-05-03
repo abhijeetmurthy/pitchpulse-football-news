@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Arsenal",
+    "country": "England",
+    "url": "https://en.wikipedia.org/wiki/Arsenal_F.C.",
+    "legends": ["Thierry Henry", "Tony Adams", "Dennis Bergkamp", "Patrick Vieira"]
+  },
+  {
+    "name": "Real Madrid",
+    "country": "Spain",
+    "url": "https://en.wikipedia.org/wiki/Real_Madrid_CF",
+    "legends": ["Alfredo Di Stefano", "Raul", "Iker Casillas", "Cristiano Ronaldo"]
+  },
+  {
+    "name": "FC Barcelona",
+    "country": "Spain",
+    "url": "https://en.wikipedia.org/wiki/FC_Barcelona",
+    "legends": ["Lionel Messi", "Xavi", "Andres Iniesta", "Carles Puyol"]
+  },
+  {
+    "name": "Bayern Munich",
+    "country": "Germany",
+    "url": "https://en.wikipedia.org/wiki/FC_Bayern_Munich",
+    "legends": ["Franz Beckenbauer", "Gerd Muller", "Oliver Kahn", "Philipp Lahm"]
+  }
+]
