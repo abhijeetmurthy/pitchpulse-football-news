@@ -4,3 +4,4 @@ node_modules
 apps/*/node_modules
 apps/web/dist
 logs
+.run
